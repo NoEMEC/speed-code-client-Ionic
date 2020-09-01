@@ -1,0 +1,32 @@
+<ion-toolbar>
+  <ion-title>Crear usuario</ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="closeModal()">
+      <ion-icon slot="end" name="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input ngDefaultControl type="text" required formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input ngDefaultControl type="text" required formControlName="apellido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Identificación</ion-label>
+      <ion-input ngDefaultControl type="number" required formControlName="identification"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="save()" expand="block" shape="round" [disabled]="!form.valid">
+      Crear
+    </ion-button>
+
+  </form>
+</ion-content>
