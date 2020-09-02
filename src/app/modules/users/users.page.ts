@@ -22,10 +22,20 @@ export class UsersPage implements OnInit {
     });
   }
 
-  async createUser() {
+  async createUser(id?: string) {
     const modal = await this.modalCtrl.create({
       component: CreateUserComponent,
+      componentProps: { id },
     });
     return await modal.present();
+  }
+
+  delete(id: string): void {
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        console.log('Usuario eliminado!');
+      },
+      error => console.error(error),
+    );
   }
 }

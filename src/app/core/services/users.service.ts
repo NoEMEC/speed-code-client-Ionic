@@ -37,4 +37,11 @@ export class UsersService extends ApiService {
   public deleteUser(id: string): Observable<any> {
     return this.delete(`${USER.BASE}/${id}`);
   }
+
+  /**
+   * getUserByID
+   */
+  public getUserByID(id: string): Observable<any> {
+    return this.get(`${USER.BASE}/${id}`);
+  }
 }
